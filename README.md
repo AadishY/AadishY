@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Aadish Kumar Yadav</h1> <h3 align="center">A passionate developer from India</h3> <p align="left"> <img src="https://komarev.com/ghpvc/?username=aadishy&label=Profile%20views&color=0e75b6&style=flat" alt="aadishy" /> </p>
-🔭 I’m currently working on EcoSnap
+🔭 I’m currently working on PlantDoc
 🌱 I’m currently learning Python, Machine Learning
 💬 Ask me about Nothing
 📫 How to reach me: aadish14146yadav@gmail.com
