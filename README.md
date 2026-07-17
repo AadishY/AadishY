@@ -60,7 +60,7 @@
 ## 🎯 Featured Project:
 <p align="center">
   <a href="https://github.com/AadishY/BugShot-Roulette">
-    <img src="https://github-readme-stats.vercel.app/api/pin?username=AadishY&repo=BugShot-Roulette&theme=nightowl" alt="Bugshot Roulette Repo" />
+    <img src="https://github-stats-extended.vercel.app/api/pin?username=AadishY&repo=BugShot-Roulette&theme=nightowl" alt="Bugshot Roulette Repo" />
   </a>
 </p>
 
@@ -69,8 +69,8 @@
 ## 📊 GitHub Analytics:
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=AadishY&show_icons=true&locale=en&theme=nightowl" alt="AadishY's GitHub Stats" height="150" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=AadishY&show_icons=true&locale=en&layout=compact&theme=nightowl" alt="AadishY's Top Languages" height="150" />
+  <img src="https://github-stats-extended.vercel.app/api?username=AadishY&show_icons=true&locale=en&theme=nightowl" alt="AadishY's GitHub Stats" height="150" />
+  <img src="https://github-stats-extended.vercel.app/api/top-langs?username=AadishY&show_icons=true&locale=en&layout=compact&theme=nightowl" alt="AadishY's Top Languages" height="150" />
 </p>
 
 <p align="center">
