@@ -2,7 +2,7 @@
 <h3 align="center">A passionate developer from India</h3>
 
 <p align="center">
-  <img src="https://aadishcounter.vercel.app/@githubprofile:3041?theme=random-animation-digit&padding=7&crop=true&count-view=true" alt="AadishY profile views" />
+  <img src="https://komarev.com/ghpvc/?username=AadishY&label=Profile%20views&color=0e75b6&style=flat-square" alt="AadishY profile views" />
 </p>
 
 <p align="center">
@@ -60,7 +60,7 @@
 ## 🎯 Featured Project:
 <p align="center">
   <a href="https://github.com/AadishY/BugShot-Roulette">
-    <img src="https://github-readme-stats.vercel.app/api/pin?username=AadishY&repo=BugShot-Roulette&theme=nightowl&v=2" alt="Bugshot Roulette Repo" />
+    <img src="https://github-readme-stats.vercel.app/api/pin?username=AadishY&repo=BugShot-Roulette&theme=nightowl" alt="Bugshot Roulette Repo" />
   </a>
 </p>
 
@@ -69,15 +69,15 @@
 ## 📊 GitHub Analytics:
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=AadishY&show_icons=true&locale=en&theme=nightowl&v=2" alt="AadishY's GitHub Stats" height="150" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=AadishY&show_icons=true&locale=en&layout=compact&theme=nightowl&v=2" alt="AadishY's Top Languages" height="150" />
+  <img src="https://github-readme-stats.vercel.app/api?username=AadishY&show_icons=true&locale=en&theme=nightowl" alt="AadishY's GitHub Stats" height="150" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=AadishY&show_icons=true&locale=en&layout=compact&theme=nightowl" alt="AadishY's Top Languages" height="150" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=AadishY&theme=nightowl&v=2" alt="AadishY's Streak Stats" />
+  <img src="https://streak-stats.demolab.com/?user=AadishY&theme=nightowl" alt="AadishY's Streak Stats" />
 </p>
 
 ### 📈 Contribution Activity:
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=AadishY&theme=nightowl&bg_color=0d1117&v=2" alt="AadishY's Contribution Graph" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=AadishY&theme=nightowl&bg_color=0d1117" alt="AadishY's Contribution Graph" />
 </p>
