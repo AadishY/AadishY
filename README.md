@@ -5,6 +5,10 @@
   <img src="https://komarev.com/ghpvc/?username=AadishY&label=Profile%20views&color=0e75b6&style=flat-square" alt="AadishY profile views" />
 </p>
 
+<p align="center">
+  <a href="https://github.com/AadishY"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=22&pause=2000&color=0E75B6&center=true&vCenter=true&width=700&height=40&lines=First%2C+solve+the+problem.+Then%2C+write+the+code.;Code+is+like+humor.+When+you+have+to+explain+it%2C+it's+bad.;Talk+is+cheap.+Show+me+the+code." alt="Typing SVG" /></a>
+</p>
+
 ## 💫 About Me:
 - 🔭 I’m currently working on **[Bugshot Roulette](https://github.com/AadishY/BugShot-Roulette)** 🎮 (Adding multiplayer support!)
 - 🌱 I’m currently learning **Python** and **Machine Learning**
@@ -53,6 +57,15 @@
 
 ---
 
+## 🎯 Featured Project:
+<p align="center">
+  <a href="https://github.com/AadishY/BugShot-Roulette">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=AadishY&repo=BugShot-Roulette&theme=nightowl" alt="Bugshot Roulette Repo" />
+  </a>
+</p>
+
+---
+
 ## 📊 GitHub Analytics:
 
 <p align="center">
@@ -64,18 +77,7 @@
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=AadishY&theme=nightowl" alt="AadishY's Streak Stats" />
 </p>
 
-### 🏆 GitHub Trophies:
+### 📈 Contribution Activity:
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=AadishY&theme=darkhub&no-frame=false&no-bg=false&margin-w=4" alt="GitHub Trophies" />
-</p>
-
-### 🔝 Top Contributed Repository:
-<p align="center">
-  <img src="https://github-contributor-stats.vercel.app/api?username=AadishY&limit=5&theme=dark&combine_all_yearly_contributions=true" alt="Top Contributed Repo" />
-</p>
-
----
-
-<p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Dev Quote" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=AadishY&theme=nightowl&bg_color=0d1117" alt="AadishY's Contribution Graph" />
 </p>
