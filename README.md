@@ -2,10 +2,6 @@
 <h3 align="center">A passionate developer from India</h3>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=AadishY&label=Profile%20views&color=0e75b6&style=flat-square" alt="AadishY profile views" />
-</p>
-
-<p align="center">
   <a href="https://github.com/AadishY"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=22&pause=2000&color=0E75B6&center=true&vCenter=true&width=700&height=40&lines=First%2C+solve+the+problem.+Then%2C+write+the+code.;Code+is+like+humor.+When+you+have+to+explain+it%2C+it's+bad.;Talk+is+cheap.+Show+me+the+code." alt="Typing SVG" /></a>
 </p>
 
@@ -74,10 +70,17 @@
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com/?user=AadishY&theme=nightowl" alt="AadishY's Streak Stats" />
+  <img src="https://streak-stats.demolab.com/?user=AadishY&theme=nightowl&v=1" alt="AadishY's Streak Stats" />
 </p>
 
 ### 📈 Contribution Activity:
 <p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=AadishY&theme=nightowl&bg_color=0d1117" alt="AadishY's Contribution Graph" />
+</p>
+
+---
+
+<p align="center">
+  <small><i>Page Views</i></small><br>
+  <img src="https://aadishcounter.vercel.app/@githubprofile:3041?theme=random-animation-digit&padding=7&crop=true&count-view=true" alt="AadishY Profile Views" />
 </p>
