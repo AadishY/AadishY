@@ -52,11 +52,13 @@
 <br/><br/>
 
 <!-- Page Views -->
+<small><i>Page Views</i></small><br/>
 <img src="https://aadishcounter.vercel.app/@githubprofile:3041?theme=random-animation-digit&padding=7&crop=true&count-view=true&size=50" alt="Profile Views" height="50" />
 
 <br/><br/>
 
 <!-- Pac-Man Contribution Graph (Bottom) -->
+<h3 align="center">🕹️ Pac-Man Contribution Graph</h3>
 <picture>
   <source media="(prefers-color-scheme: dark)"
     srcset="https://raw.githubusercontent.com/AadishY/AadishY/output/pacman-contribution-graph-dark.svg">
