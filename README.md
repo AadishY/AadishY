@@ -49,16 +49,16 @@
   <img src="./youtube-music-widget.svg" alt="YouTube Music - Bayle the Dread" width="560" />
 </a>
 
-<br/><br/>
+<br/>
 
 <!-- Page Views -->
-<img src="https://aadishcounter.vercel.app/@githubprofile:3041?theme=random-animation-digit&padding=7&crop=true&count-view=true&size=50" alt="Profile Views" height="50" /><br/>
+<img src="https://aadishcounter.vercel.app/@githubprofile:3041?theme=random-animation-digit&padding=7&crop=true&count-view=true&size=65" alt="Profile Views" height="65" /><br/>
 <small><i>Page Views</i></small>
 
-<br/><br/>
+<br/>
 
 <!-- Commit Activity Contribution Graph (Bottom) -->
-<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&weight=400&size=22&pause=10000000&color=58A6FF&center=true&vCenter=true&width=450&height=50&lines=Commit+Activity" alt="Commit Activity" />
+<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&weight=400&size=20&pause=10000000&color=58A6FF&center=true&vCenter=true&width=380&height=38&lines=Commit+Activity" alt="Commit Activity" />
 <br/>
 <picture>
   <source media="(prefers-color-scheme: dark)"
