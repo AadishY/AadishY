@@ -24,10 +24,6 @@ const server = http.createServer((req, res) => {
     const html = fs.readFileSync(path.join(__dirname, 'public', 'index.html'), 'utf-8');
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.end(html);
-  } else if (pathname === '/play' || pathname === '/play.html' || pathname === '/api/play') {
-    const html = fs.readFileSync(path.join(__dirname, 'public', 'play.html'), 'utf-8');
-    res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    res.end(html);
   } else if (pathname === '/api/banner') {
     bannerHandler(req, res);
   } else if (pathname === '/api/quote') {
