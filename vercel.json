@@ -22,5 +22,11 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/play",
+      "destination": "/play.html"
+    }
   ]
 }
