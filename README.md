@@ -19,8 +19,8 @@
 
 <!-- YouTube Music Widget -->
 <!-- START_MUSIC -->
-<a href="https://youtu.be/ufAmIBRFohM" target="_blank">
-  <img src="./youtube-music-widget.svg" alt="YouTube Music - Elden Ring: Bayle the Dread (with Igon's Voicelines)" width="560" />
+<a href="https://youtu.be/hQE7IxvnGQU" target="_blank">
+  <img src="./youtube-music-widget.svg" alt="YouTube Music - Elden Ring: Bayle the Dread (4K Edit)" width="560" />
 </a>
 <!-- END_MUSIC -->
 
