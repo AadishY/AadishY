@@ -28,7 +28,7 @@ def rotate_banner_and_quote():
 
     quote_block = f"""<!-- START_QUOTE -->
 <a href="https://github.com/AadishY">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=28&pause=10000000&color=8B949E&center=true&vCenter=true&width=900&height=65&lines={encoded_quote}" alt="Tactical Quote" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=24&pause=10000000&color=8B949E&center=true&vCenter=true&width=1050&height=65&lines={encoded_quote}" alt="Tactical Quote" />
 </a>
 <!-- END_QUOTE -->"""
 
