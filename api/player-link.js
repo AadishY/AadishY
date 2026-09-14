@@ -1,4 +1,5 @@
 const { tracks } = require('./data/assets');
+const { getLinkedTrackIndex } = require('./state');
 
 module.exports = (req, res) => {
   const { id } = req.query || {};
@@ -8,14 +9,16 @@ module.exports = (req, res) => {
     const idx = parseInt(id, 10) - 1;
     track = tracks[Math.abs(idx) % tracks.length];
   } else {
-    track = tracks[Math.floor(Math.random() * tracks.length)];
+    const idx = getLinkedTrackIndex(tracks.length);
+    track = tracks[idx];
   }
 
   res.writeHead(302, {
     Location: track.url,
-    'Cache-Control': 'max-age=0, no-cache, no-store, must-revalidate',
+    'Cache-Control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
     Pragma: 'no-cache',
     Expires: '0'
   });
   res.end();
 };
+
