@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aadish's Profile Serverless API</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090a0f;
+      --card-bg: #11141e;
+      --border: #212638;
+      --accent: #58a6ff;
+      --accent-green: #3fb950;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .pixel-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 20px;
+      color: var(--accent);
+      margin-bottom: 14px;
+      text-shadow: 0 0 16px rgba(88, 166, 255, 0.4);
+    }
+    .sub {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+    .refresh-btn {
+      margin-top: 22px;
+      padding: 12px 28px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      background: #1f2430;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .refresh-btn:hover {
+      background: var(--accent);
+      color: #000;
+      box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
+    }
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 30px;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .endpoint-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      background: #181d2c;
+      color: var(--accent-green);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(63, 185, 80, 0.3);
+    }
+    .preview-box {
+      text-align: center;
+      background: #0d1017;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      border: 1px dashed var(--border);
+      overflow: hidden;
+    }
+    .preview-box img {
+      max-width: 100%;
+      height: auto;
+      display: inline-block;
+    }
+    .code-box {
+      background: #07090e;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      position: relative;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #c9d1d9;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #1e2436;
+      border: 1px solid #30364d;
+      color: #fff;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .copy-btn:hover {
+      background: var(--accent);
+      color: #000;
+    }
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="pixel-title">AADISH // PROFILE API</div>
+      <p class="sub">Vercel Serverless Randomizer for Banners, Quotes &amp; YouTube Player</p>
+      <button class="refresh-btn" onclick="refreshAll()">
+        <span>🎲</span> Test Live Random Refresh
+      </button>
+    </header>
+
+    <!-- 1. Banner -->
+    <div class="section-card">
+      <div class="section-header">
+        <span class="section-title">🖼️ Random Profile Banner</span>
+        <span class="endpoint-badge">GET /api/banner</span>
+      </div>
+      <div class="preview-box">
+        <img id="bannerImg" src="/api/banner" alt="Random Banner" />
+      </div>
+      <div class="code-box">
+        <button class="copy-btn" onclick="copySnippet('codeBanner')">Copy</button>
+        <code id="codeBanner">&lt;img src="https://YOUR_VERCEL_DOMAIN/api/banner" alt="Profile Banner" width="100%" /&gt;</code>
+      </div>
+    </div>
+
+    <!-- 2. Quote -->
+    <div class="section-card">
+      <div class="section-header">
+        <span class="section-title">💬 Random Tactical Quote</span>
+        <span class="endpoint-badge">GET /api/quote</span>
+      </div>
+      <div class="preview-box">
+        <img id="quoteImg" src="/api/quote" alt="Random Quote" />
+      </div>
+      <div class="code-box">
+        <button class="copy-btn" onclick="copySnippet('codeQuote')">Copy</button>
+        <code id="codeQuote">&lt;img src="https://YOUR_VERCEL_DOMAIN/api/quote" alt="Tactical Quote" width="100%" /&gt;</code>
+      </div>
+    </div>
+
+    <!-- 3. YouTube Player -->
+    <div class="section-card">
+      <div class="section-header">
+        <span class="section-title">🎵 Random YouTube Music Player</span>
+        <span class="endpoint-badge">GET /api/player</span>
+      </div>
+      <div class="preview-box">
+        <a href="/api/player-link" target="_blank">
+          <img id="playerImg" src="/api/player" alt="YouTube Player" width="560" />
+        </a>
+      </div>
+      <div class="code-box">
+        <button class="copy-btn" onclick="copySnippet('codePlayer')">Copy</button>
+        <code id="codePlayer">&lt;a href="https://YOUR_VERCEL_DOMAIN/api/player-link" target="_blank"&gt;
+  &lt;img src="https://YOUR_VERCEL_DOMAIN/api/player" alt="YouTube Music Player" width="560" /&gt;
+&lt;/a&gt;</code>
+      </div>
+    </div>
+
+    <footer>
+      Crafted with precision for Aadish's GitHub Profile • Deployable directly on Vercel
+    </footer>
+  </div>
+
+  <script>
+    function refreshAll() {
+      const t = Date.now();
+      document.getElementById('bannerImg').src = '/api/banner?t=' + t;
+      document.getElementById('quoteImg').src = '/api/quote?t=' + t;
+      document.getElementById('playerImg').src = '/api/player?t=' + t;
+    }
+
+    function copySnippet(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text);
+      event.target.innerText = 'Copied!';
+      setTimeout(() => { event.target.innerText = 'Copy'; }, 1500);
+    }
+  </script>
+</body>
+</html>

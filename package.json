@@ -1,0 +1,13 @@
+{
+  "name": "aadish-profile-api",
+  "version": "1.0.0",
+  "description": "Serverless Random Banner, Quote, and Player API for Aadish's GitHub Profile",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["github-profile", "vercel", "serverless", "banner", "quote", "music-player"],
+  "author": "Aadish",
+  "license": "MIT"
+}
