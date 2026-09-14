@@ -1,28 +1,25 @@
 <div align="center">
 
-<!-- Random Profile Banner -->
-<img src="./banner/current_banner.webp" alt="Profile Banner" width="100%" />
+<!-- Dynamic Random Profile Banner -->
+<img src="https://aadishy.vercel.app/api/banner" alt="Profile Banner" width="100%" />
 
 <!-- Retro Pixel Font (Press Start 2P) -->
 <a href="https://github.com/AadishY">
   <img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&weight=400&size=34&pause=10000000&color=58A6FF&center=true&vCenter=true&width=750&height=85&lines=Yoo%2C+I+am+Aadish+%F0%9F%91%8B" alt="Yoo, I am Aadish" />
 </a>
 
-<!-- START_QUOTE -->
+<!-- Dynamic Random Tactical Quote -->
 <a href="https://github.com/AadishY">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=24&pause=10000000&color=8B949E&center=true&vCenter=true&width=1050&height=65&lines=Enemy%20can%27t%20predict%20your%20next%20move%20if%20you%20don%27t%20move." alt="Tactical Quote" />
+  <img src="https://aadishy.vercel.app/api/quote" alt="Tactical Quote" width="100%" />
 </a>
-<!-- END_QUOTE -->
+
 <br/>
 <br/>
 
-
-<!-- YouTube Music Widget -->
-<!-- START_MUSIC -->
-<a href="https://youtu.be/rFLO6wgvBbk" target="_blank">
-  <img src="./youtube-music-widget.svg" alt="YouTube Music - Maliketh: "Oh death, become my blade once more" (Slowed)" width="560" />
+<!-- YouTube Music Widget (Dynamic Random on Refresh) -->
+<a href="https://aadishy.vercel.app/api/player-link" target="_blank">
+  <img src="https://aadishy.vercel.app/api/player" alt="YouTube Music Player" width="560" />
 </a>
-<!-- END_MUSIC -->
 
 <br/>
 
