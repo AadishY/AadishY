@@ -3,8 +3,9 @@ import random
 import shutil
 import re
 import urllib.parse
+import json
 
-def rotate_banner_and_quote():
+def rotate_profile():
     # 1. Rotate banner
     banner_dir = 'banner'
     if os.path.exists(banner_dir):
@@ -32,15 +33,38 @@ def rotate_banner_and_quote():
 </a>
 <!-- END_QUOTE -->"""
 
+    # 3. Rotate YouTube Music Widget
+    chosen_track = None
+    tracks_file = os.path.join('music', 'tracks.json')
+    if os.path.exists(tracks_file):
+        with open(tracks_file, 'r', encoding='utf-8') as f:
+            tracks = json.load(f)
+        if tracks:
+            chosen_track = random.choice(tracks)
+            svg_src = chosen_track.get('svg_file')
+            target_svg = 'youtube-music-widget.svg'
+            if svg_src and os.path.exists(svg_src):
+                shutil.copyfile(svg_src, target_svg)
+                print(f"Swapped music widget to: {chosen_track.get('title')}")
+
     if os.path.exists('README.md'):
         with open('README.md', 'r', encoding='utf-8') as f:
             readme = f.read()
 
-        new_readme = re.sub(r'<!-- START_QUOTE -->[\s\S]*?<!-- END_QUOTE -->', quote_block, readme)
+        readme = re.sub(r'<!-- START_QUOTE -->[\s\S]*?<!-- END_QUOTE -->', quote_block, readme)
+
+        if chosen_track:
+            music_block = f"""<!-- START_MUSIC -->
+<a href="{chosen_track['url']}" target="_blank">
+  <img src="./youtube-music-widget.svg" alt="YouTube Music - {chosen_track['title']}" width="560" />
+</a>
+<!-- END_MUSIC -->"""
+            readme = re.sub(r'<!-- START_MUSIC -->[\s\S]*?<!-- END_MUSIC -->', music_block, readme)
+
         with open('README.md', 'w', encoding='utf-8') as f:
-            f.write(new_readme)
+            f.write(readme)
 
         print(f"Rotated quote to: {chosen_quote}")
 
 if __name__ == '__main__':
-    rotate_banner_and_quote()
+    rotate_profile()
