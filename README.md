@@ -10,7 +10,7 @@
 
 <!-- START_QUOTE -->
 <a href="https://github.com/AadishY">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=28&pause=10000000&color=8B949E&center=true&vCenter=true&width=900&height=65&lines=Enemy%20can%27t%20predict%20your%20next%20move%20if%20you%20don%27t%20move." alt="Tactical Quote" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=28&pause=10000000&color=8B949E&center=true&vCenter=true&width=900&height=65&lines=No%20one%20can%20use%20you%20if%20you%20are%20useless." alt="Tactical Quote" />
 </a>
 <!-- END_QUOTE -->
 <br/>
