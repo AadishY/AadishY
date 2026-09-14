@@ -10,7 +10,7 @@
 
 <!-- START_QUOTE -->
 <a href="https://github.com/AadishY">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=24&pause=10000000&color=8B949E&center=true&vCenter=true&width=1050&height=65&lines=No%20one%20can%20use%20you%20if%20you%20are%20useless." alt="Tactical Quote" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=24&pause=10000000&color=8B949E&center=true&vCenter=true&width=1050&height=65&lines=Enemy%20can%27t%20predict%20your%20next%20move%20if%20you%20don%27t%20move." alt="Tactical Quote" />
 </a>
 <!-- END_QUOTE -->
 <br/>
@@ -19,8 +19,8 @@
 
 <!-- YouTube Music Widget -->
 <!-- START_MUSIC -->
-<a href="https://youtu.be/hQE7IxvnGQU" target="_blank">
-  <img src="./youtube-music-widget.svg" alt="YouTube Music - Elden Ring: Bayle the Dread (4K Edit)" width="560" />
+<a href="https://youtu.be/rFLO6wgvBbk" target="_blank">
+  <img src="./youtube-music-widget.svg" alt="YouTube Music - Maliketh: "Oh death, become my blade once more" (Slowed)" width="560" />
 </a>
 <!-- END_MUSIC -->
 
