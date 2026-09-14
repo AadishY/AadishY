@@ -13,7 +13,8 @@ Once deployed, every profile visit or refresh returns a **random banner, quote, 
 | `/api/quote` | GET | `image/svg+xml` | Serves a random tactical quote in `JetBrains Mono` SVG. Supports `?id=1\|2\|3\|4` or `?text=Custom` |
 | `/api/player` | GET | `image/svg+xml` | Serves a random YouTube music player card SVG. Supports `?id=1\|2\|3\|4` |
 | `/api/player-link` | GET | `302 Redirect` | Redirects directly to the YouTube video URL of the track |
-| `/` | GET | `text/html` | Interactive web dashboard to preview and test randomization live |
+| `/api/readme` | GET | `text/markdown` / `JSON` | Serves profile markdown (`?file=main\|old`, `?format=json`) |
+| `/` | GET | `text/html` | Interactive web dashboard with rendered profile preview, raw markdown, and live API sandbox |
 
 ---
 

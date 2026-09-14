@@ -3,75 +3,443 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aadish's Profile Serverless API</title>
+  <title>Aadish // GitHub Profile &amp; Serverless API</title>
+  <meta name="description" content="Live rendered GitHub Profile README and Serverless Randomizer API for banners, tactical quotes, and YouTube music player.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     :root {
-      --bg: #090a0f;
-      --card-bg: #11141e;
-      --border: #212638;
+      --bg: #090a10;
+      --bg-surface: #0e121c;
+      --card-bg: rgba(17, 21, 34, 0.85);
+      --card-hover: rgba(22, 28, 45, 0.95);
+      --border: #21283d;
+      --border-glow: rgba(88, 166, 255, 0.25);
       --accent: #58a6ff;
+      --accent-rgb: 88, 166, 255;
       --accent-green: #3fb950;
-      --text: #e6edf3;
+      --accent-purple: #a371f7;
+      --accent-orange: #f0883e;
+      --text: #f0f6fc;
       --text-muted: #8b949e;
+      --text-dim: #6e7681;
+      --radius: 12px;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      background: var(--bg);
+      background: radial-gradient(circle at 50% 0%, #151a2d 0%, #090a10 70%);
+      background-attachment: fixed;
       color: var(--text);
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      padding: 40px 20px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      padding: 30px 20px 60px;
       line-height: 1.6;
     }
+
     .container {
-      max-width: 900px;
+      max-width: 980px;
       margin: 0 auto;
     }
+
+    /* Header */
     header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 32px;
+      position: relative;
     }
-    .pixel-title {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 20px;
-      color: var(--accent);
-      margin-bottom: 14px;
-      text-shadow: 0 0 16px rgba(88, 166, 255, 0.4);
+
+    .badge-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
     }
-    .sub {
-      color: var(--text-muted);
-      font-size: 15px;
-    }
-    .refresh-btn {
-      margin-top: 22px;
-      padding: 12px 28px;
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 14px;
-      background: #1f2430;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
+
+    .status-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(14, 18, 28, 0.8);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
     }
-    .refresh-btn:hover {
+
+    .status-pill.live {
+      border-color: rgba(63, 185, 80, 0.4);
+      color: var(--accent-green);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-green);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-green);
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.6; }
+    }
+
+    .pixel-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(18px, 4vw, 24px);
+      color: var(--accent);
+      margin-bottom: 12px;
+      text-shadow: 0 0 24px rgba(88, 166, 255, 0.45);
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 620px;
+      margin: 0 auto 24px;
+    }
+
+    .header-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-action {
+      padding: 10px 22px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #1f273d, #141a29);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      box-shadow: 0 4px 14px rgba(88, 166, 255, 0.15);
+    }
+
+    .btn-primary:hover {
       background: var(--accent);
       color: #000;
-      box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
+      box-shadow: 0 0 25px rgba(88, 166, 255, 0.5);
+      transform: translateY(-2px);
     }
+
+    .btn-secondary {
+      background: #121624;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: #1a2033;
+      border-color: #3b4566;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .spin {
+      animation: spin 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Main Navigation Tabs */
+    .tab-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(14, 18, 28, 0.95);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 6px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(12px);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tabs-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 9px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 9px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .tab-btn.active {
+      background: #1f273e;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(88, 166, 255, 0.3);
+    }
+
+    .version-select-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-right: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .version-select {
+      background: #090c14;
+      border: 1px solid var(--border);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .version-select:hover, .version-select:focus {
+      border-color: var(--accent);
+    }
+
+    /* Content Cards */
+    .view-panel {
+      display: none;
+    }
+
+    .view-panel.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* GitHub-like Card */
+    .github-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(12px);
+    }
+
+    .github-card-header {
+      background: #0e121d;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .file-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: #e6edf3;
+    }
+
+    .file-title svg {
+      fill: var(--accent);
+    }
+
+    .file-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sm-btn {
+      background: #181f30;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 5px 12px;
+      font-size: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .sm-btn:hover {
+      background: #232b42;
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* Rendered Markdown Body */
+    .markdown-body {
+      padding: 36px 28px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: inline-block;
+      vertical-align: middle;
+      transition: opacity 0.3s ease;
+    }
+
+    .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+      color: #fff;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .markdown-body h1 {
+      font-size: 26px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    .markdown-body h2 {
+      font-size: 20px;
+      border-bottom: 1px solid rgba(33, 40, 61, 0.6);
+      padding-bottom: 8px;
+    }
+
+    .markdown-body h3 {
+      font-size: 17px;
+    }
+
+    .markdown-body hr {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 28px 0;
+    }
+
+    .markdown-body a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .markdown-body a:hover {
+      text-decoration: underline;
+    }
+
+    .markdown-body ul {
+      list-style-type: square;
+      padding-left: 24px;
+      margin: 14px 0;
+    }
+
+    .markdown-body li {
+      margin-bottom: 8px;
+    }
+
+    /* Raw Code Viewer */
+    .raw-container {
+      background: #07090e;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .raw-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      background: #0e121d;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .raw-stats {
+      font-family: 'JetBrains Mono', monospace;
+      display: flex;
+      gap: 16px;
+    }
+
+    .raw-code-box {
+      padding: 24px 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.65;
+      color: #c9d1d9;
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 700px;
+      overflow-y: auto;
+    }
+
+    /* API Docs Cards */
     .section-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 24px;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
+      transition: border-color 0.25s, transform 0.25s;
     }
+
+    .section-card:hover {
+      border-color: rgba(88, 166, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
     .section-header {
       display: flex;
       justify-content: space-between;
@@ -79,12 +447,19 @@
       margin-bottom: 16px;
       border-bottom: 1px solid var(--border);
       padding-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
+
     .section-title {
       font-size: 17px;
       font-weight: 700;
       color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
+
     .endpoint-badge {
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
@@ -94,135 +469,477 @@
       border-radius: 6px;
       border: 1px solid rgba(63, 185, 80, 0.3);
     }
+
     .preview-box {
       text-align: center;
-      background: #0d1017;
-      padding: 20px;
+      background: #090c14;
+      padding: 24px 20px;
       border-radius: 12px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       border: 1px dashed var(--border);
-      overflow: hidden;
+      position: relative;
     }
+
     .preview-box img {
       max-width: 100%;
       height: auto;
-      display: inline-block;
+      border-radius: 6px;
     }
+
     .code-box {
       background: #07090e;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 10px;
       padding: 14px 18px;
       position: relative;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
+      font-size: 12.5px;
       color: #c9d1d9;
       overflow-x: auto;
       white-space: pre-wrap;
       word-break: break-all;
     }
+
     .copy-btn {
       position: absolute;
       top: 10px;
       right: 10px;
-      background: #1e2436;
-      border: 1px solid #30364d;
+      background: #1c2336;
+      border: 1px solid #2d364f;
       color: #fff;
       font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 4px;
+      padding: 5px 12px;
+      border-radius: 6px;
       cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      transition: all 0.2s;
     }
+
     .copy-btn:hover {
       background: var(--accent);
       color: #000;
     }
+
     footer {
       text-align: center;
       color: var(--text-muted);
       font-size: 13px;
-      margin-top: 40px;
+      margin-top: 50px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1f273e;
+      color: #fff;
+      border: 1px solid var(--accent);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .toast.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <div class="pixel-title">AADISH // PROFILE API</div>
-      <p class="sub">Vercel Serverless Randomizer for Banners, Quotes &amp; YouTube Player</p>
-      <button class="refresh-btn" onclick="refreshAll()">
-        <span>🎲</span> Test Live Random Refresh
-      </button>
-    </header>
+      <div class="badge-bar">
+        <span class="status-pill live">
+          <span class="pulse-dot"></span> VERCEL SERVERLESS LIVE
+        </span>
+        <span class="status-pill">
+          🐙 GitHub @AadishY
+        </span>
+        <span class="status-pill">
+          ⚡ Node.js API
+        </span>
+      </div>
 
-    <!-- 1. Banner -->
-    <div class="section-card">
-      <div class="section-header">
-        <span class="section-title">🖼️ Random Profile Banner</span>
-        <span class="endpoint-badge">GET /api/banner</span>
-      </div>
-      <div class="preview-box">
-        <img id="bannerImg" src="/api/banner" alt="Random Banner" />
-      </div>
-      <div class="code-box">
-        <button class="copy-btn" onclick="copySnippet('codeBanner')">Copy</button>
-        <code id="codeBanner">&lt;img src="https://YOUR_VERCEL_DOMAIN/api/banner" alt="Profile Banner" width="100%" /&gt;</code>
-      </div>
-    </div>
+      <h1 class="pixel-title">AADISH // PROFILE HUB</h1>
+      <p class="subtitle">Live Rendered GitHub Profile Markdown &amp; Dynamic Serverless Randomizer API</p>
 
-    <!-- 2. Quote -->
-    <div class="section-card">
-      <div class="section-header">
-        <span class="section-title">💬 Random Tactical Quote</span>
-        <span class="endpoint-badge">GET /api/quote</span>
-      </div>
-      <div class="preview-box">
-        <img id="quoteImg" src="/api/quote" alt="Random Quote" />
-      </div>
-      <div class="code-box">
-        <button class="copy-btn" onclick="copySnippet('codeQuote')">Copy</button>
-        <code id="codeQuote">&lt;img src="https://YOUR_VERCEL_DOMAIN/api/quote" alt="Tactical Quote" width="100%" /&gt;</code>
-      </div>
-    </div>
-
-    <!-- 3. YouTube Player -->
-    <div class="section-card">
-      <div class="section-header">
-        <span class="section-title">🎵 Random YouTube Music Player</span>
-        <span class="endpoint-badge">GET /api/player</span>
-      </div>
-      <div class="preview-box">
-        <a href="/api/player-link" target="_blank">
-          <img id="playerImg" src="/api/player" alt="YouTube Player" width="560" />
+      <div class="header-actions">
+        <button id="btnRandomize" class="btn-action btn-primary" onclick="refreshAllWidgets()">
+          <span id="diceIcon">🎲</span>
+          <span>Randomize Live Widgets</span>
+        </button>
+        <a href="https://github.com/AadishY" target="_blank" class="btn-action btn-secondary">
+          <span>🐙 View on GitHub</span>
         </a>
       </div>
-      <div class="code-box">
-        <button class="copy-btn" onclick="copySnippet('codePlayer')">Copy</button>
-        <code id="codePlayer">&lt;a href="https://YOUR_VERCEL_DOMAIN/api/player-link" target="_blank"&gt;
-  &lt;img src="https://YOUR_VERCEL_DOMAIN/api/player" alt="YouTube Music Player" width="560" /&gt;
-&lt;/a&gt;</code>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="tab-bar">
+      <div class="tabs-left">
+        <button id="tabBtnPreview" class="tab-btn active" onclick="switchTab('preview')">
+          <span>🌟</span> Rendered Profile
+        </button>
+        <button id="tabBtnRaw" class="tab-btn" onclick="switchTab('raw')">
+          <span>📝</span> Raw Markdown
+        </button>
+        <button id="tabBtnApi" class="tab-btn" onclick="switchTab('api')">
+          <span>⚡</span> API Sandbox &amp; Docs
+        </button>
       </div>
-    </div>
+      <div class="version-select-box">
+        <span>Display:</span>
+        <select id="readmeVersionSelect" class="version-select" onchange="changeReadmeVersion(this.value)">
+          <option value="main" selected>README.md (Main Profile)</option>
+          <option value="old">old_readme.md (Archive)</option>
+        </select>
+      </div>
+    </nav>
+
+    <!-- 1. Rendered Profile View (Default) -->
+    <section id="panelPreview" class="view-panel active">
+      <div class="github-card">
+        <div class="github-card-header">
+          <div class="file-title">
+            <svg height="16" viewBox="0 0 16 16" width="16"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25Zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25ZM7.25 8a.75.75 0 0 1-.75.75H3.75a.75.75 0 0 1 0-1.5h2.75A.75.75 0 0 1 7.25 8Zm0-3a.75.75 0 0 1-.75.75H3.75a.75.75 0 0 1 0-1.5h2.75A.75.75 0 0 1 7.25 5Zm0 6a.75.75 0 0 1-.75.75H3.75a.75.75 0 0 1 0-1.5h2.75A.75.75 0 0 1 7.25 11Zm5-6a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 12.25 5Zm0 3a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 12.25 8Zm0 3a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 12.25 11Z"></path></svg>
+            <span id="renderedFileName">AadishY / README.md</span>
+          </div>
+          <div class="file-actions">
+            <button class="sm-btn" onclick="switchTab('raw')">
+              <span>&lt;/&gt;</span> View Raw
+            </button>
+            <button class="sm-btn" onclick="copyCurrentMarkdown()">
+              <span>📋</span> Copy Markdown
+            </button>
+          </div>
+        </div>
+        <div id="markdownContainer" class="markdown-body">
+          <!-- Rendered Markdown Output injected here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Raw Markdown Code Viewer -->
+    <section id="panelRaw" class="view-panel">
+      <div class="raw-container">
+        <div class="raw-toolbar">
+          <div class="raw-stats">
+            <span id="rawLinesCount">Lines: 0</span>
+            <span id="rawCharsCount">Characters: 0</span>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="sm-btn" onclick="downloadCurrentMarkdown()">
+              <span>💾</span> Download .md
+            </button>
+            <button class="sm-btn" onclick="copyCurrentMarkdown()">
+              <span>📋</span> Copy Raw Markdown
+            </button>
+          </div>
+        </div>
+        <pre class="raw-code-box"><code id="rawCodeContent">Loading markdown...</code></pre>
+      </div>
+    </section>
+
+    <!-- 3. API Sandbox & Documentation -->
+    <section id="panelApi" class="view-panel">
+      <!-- 1. Banner -->
+      <div class="section-card">
+        <div class="section-header">
+          <span class="section-title">🖼️ Random Profile Banner</span>
+          <span class="endpoint-badge">GET /api/banner</span>
+        </div>
+        <div class="preview-box">
+          <img id="apiBannerImg" src="/api/banner" alt="Random Banner" />
+        </div>
+        <div class="code-box">
+          <button class="copy-btn" onclick="copySnippet('codeBanner')">Copy</button>
+          <code id="codeBanner">&lt;img src="https://aadishy.vercel.app/api/banner" alt="Profile Banner" width="100%" /&gt;</code>
+        </div>
+      </div>
+
+      <!-- 2. Quote -->
+      <div class="section-card">
+        <div class="section-header">
+          <span class="section-title">💬 Random Tactical Quote</span>
+          <span class="endpoint-badge">GET /api/quote</span>
+        </div>
+        <div class="preview-box">
+          <img id="apiQuoteImg" src="/api/quote" alt="Random Quote" />
+        </div>
+        <div class="code-box">
+          <button class="copy-btn" onclick="copySnippet('codeQuote')">Copy</button>
+          <code id="codeQuote">&lt;a href="https://github.com/AadishY"&gt;
+  &lt;img src="https://aadishy.vercel.app/api/quote" alt="Tactical Quote" width="100%" /&gt;
+&lt;/a&gt;</code>
+        </div>
+      </div>
+
+      <!-- 3. YouTube Player -->
+      <div class="section-card">
+        <div class="section-header">
+          <span class="section-title">🎵 Random YouTube Music Player</span>
+          <span class="endpoint-badge">GET /api/player</span>
+        </div>
+        <div class="preview-box">
+          <a id="apiPlayerLink" href="/api/player-link" target="_blank">
+            <img id="apiPlayerImg" src="/api/player" alt="YouTube Player" width="560" />
+          </a>
+        </div>
+        <div class="code-box">
+          <button class="copy-btn" onclick="copySnippet('codePlayer')">Copy</button>
+          <code id="codePlayer">&lt;a href="https://aadishy.vercel.app/api/player-link" target="_blank"&gt;
+  &lt;img src="https://aadishy.vercel.app/api/player" alt="YouTube Music Player" width="560" /&gt;
+&lt;/a&gt;</code>
+        </div>
+      </div>
+
+      <!-- 4. Markdown Endpoint -->
+      <div class="section-card">
+        <div class="section-header">
+          <span class="section-title">📄 Raw Markdown Endpoint</span>
+          <span class="endpoint-badge">GET /api/readme</span>
+        </div>
+        <div class="code-box">
+          <button class="copy-btn" onclick="copySnippet('codeReadme')">Copy</button>
+          <code id="codeReadme">curl -s "https://aadishy.vercel.app/api/readme"
+# or JSON format:
+curl -s "https://aadishy.vercel.app/api/readme?format=json"</code>
+        </div>
+      </div>
+    </section>
 
     <footer>
-      Crafted with precision for Aadish's GitHub Profile • Deployable directly on Vercel
+      Crafted with precision for <strong>Aadish Kumar Yadav</strong> (@AadishY) • Hosted on Vercel
     </footer>
   </div>
 
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <span>✅</span> <span id="toastMsg">Action completed!</span>
+  </div>
+
   <script>
-    function refreshAll() {
+    // Embedded initial main README fallback for 0ms instant render
+    const DEFAULT_MAIN_README = `<div align="center">
+
+<!-- Dynamic Random Profile Banner -->
+<img src="/api/banner" alt="Profile Banner" width="100%" />
+
+<!-- Retro Pixel Font (Press Start 2P) -->
+<a href="https://github.com/AadishY">
+  <img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&weight=400&size=34&pause=10000000&color=58A6FF&center=true&vCenter=true&width=750&height=85&lines=Yoo%2C+I+am+Aadish+%F0%9F%91%8B" alt="Yoo, I am Aadish" />
+</a>
+
+<!-- Dynamic Random Tactical Quote -->
+<a href="https://github.com/AadishY">
+  <img src="/api/quote" alt="Tactical Quote" width="100%" />
+</a>
+
+<br/>
+<br/>
+
+<!-- YouTube Music Widget (Dynamic Random on Refresh) -->
+<a href="/api/player-link" target="_blank">
+  <img src="/api/player" alt="YouTube Music Player" width="560" />
+</a>
+
+<br/>
+
+<br/>
+
+<!-- Commit Activity Contribution Graph (Bottom) -->
+<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&weight=400&size=20&pause=10000000&color=58A6FF&center=true&vCenter=true&width=380&height=38&lines=Commit+Activity" alt="Commit Activity" />
+<br/>
+<picture>
+  <source media="(prefers-color-scheme: dark)"
+    srcset="https://raw.githubusercontent.com/AadishY/AadishY/output/pacman-contribution-graph-dark.svg">
+  <source media="(prefers-color-scheme: light)"
+    srcset="https://raw.githubusercontent.com/AadishY/AadishY/output/pacman-contribution-graph.svg">
+  <img src="https://raw.githubusercontent.com/midnightshady/midnightshady/output/pacman-contribution-graph-dark.svg" alt="Pac-man Contribution Graph">
+</picture>
+<br/>
+
+<br/>
+ <!-- Page Views -->
+<img src="https://aadishcounter.vercel.app/@githubprofile:3041?theme=random-animation-digit&padding=7&crop=true&count-view=true&size=65" alt="Profile Views" height="65" /><br/>
+<small><i>Page Views</i></small>
+
+</div>`;
+
+    let currentVersion = 'main';
+    let rawReadmeContent = DEFAULT_MAIN_README;
+    const cache = { main: '', old: '' };
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => { toast.classList.remove('show'); }, 2000);
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
+
+      if (tabId === 'preview') {
+        document.getElementById('tabBtnPreview').classList.add('active');
+        document.getElementById('panelPreview').classList.add('active');
+      } else if (tabId === 'raw') {
+        document.getElementById('tabBtnRaw').classList.add('active');
+        document.getElementById('panelRaw').classList.add('active');
+      } else if (tabId === 'api') {
+        document.getElementById('tabBtnApi').classList.add('active');
+        document.getElementById('panelApi').classList.add('active');
+      }
+    }
+
+    async function loadMarkdown(version) {
+      currentVersion = version;
+      const fileName = version === 'old' ? 'old_readme.md' : 'README.md';
+      document.getElementById('renderedFileName').innerText = 'AadishY / ' + fileName;
+
+      if (cache[version]) {
+        renderContent(cache[version]);
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/readme?file=${version}&t=${Date.now()}`);
+        if (res.ok) {
+          const text = await res.text();
+          cache[version] = text;
+          renderContent(text);
+          return;
+        }
+      } catch (err) {
+        console.warn('API fetch failed, trying static /' + fileName, err);
+      }
+
+      try {
+        const res = await fetch(`/${fileName}?t=${Date.now()}`);
+        if (res.ok) {
+          const text = await res.text();
+          cache[version] = text;
+          renderContent(text);
+          return;
+        }
+      } catch (err) {
+        console.warn('Static fetch failed', err);
+      }
+
+      // Fallback
+      if (version === 'main') {
+        renderContent(DEFAULT_MAIN_README);
+      }
+    }
+
+    function renderContent(mdText) {
+      rawReadmeContent = mdText;
+
+      // Update Raw View
+      document.getElementById('rawCodeContent').textContent = mdText;
+      const lines = mdText.split('\n').length;
+      document.getElementById('rawLinesCount').innerText = `Lines: ${lines}`;
+      document.getElementById('rawCharsCount').innerText = `Characters: ${mdText.length}`;
+
+      // Update Rendered View
+      const container = document.getElementById('markdownContainer');
+      if (typeof marked !== 'undefined' && marked.parse) {
+        container.innerHTML = marked.parse(mdText, { gfm: true, breaks: true });
+      } else {
+        container.innerHTML = mdText;
+      }
+
+      // Ensure local preview uses live relative paths if matching /api/
+      container.querySelectorAll('img').forEach(img => {
+        const src = img.getAttribute('src');
+        if (src && src.includes('/api/')) {
+          const u = new URL(src, window.location.origin);
+          u.searchParams.set('t', Date.now());
+          img.src = u.pathname + u.search;
+        }
+      });
+    }
+
+    function changeReadmeVersion(val) {
+      loadMarkdown(val);
+    }
+
+    function refreshAllWidgets() {
+      const btn = document.getElementById('btnRandomize');
+      const dice = document.getElementById('diceIcon');
+      dice.classList.add('spin');
+      setTimeout(() => dice.classList.remove('spin'), 650);
+
       const t = Date.now();
-      document.getElementById('bannerImg').src = '/api/banner?t=' + t;
-      document.getElementById('quoteImg').src = '/api/quote?t=' + t;
-      document.getElementById('playerImg').src = '/api/player?t=' + t;
+
+      // Refresh API cards
+      const banner = document.getElementById('apiBannerImg');
+      if (banner) banner.src = '/api/banner?t=' + t;
+
+      const quote = document.getElementById('apiQuoteImg');
+      if (quote) quote.src = '/api/quote?t=' + t;
+
+      const player = document.getElementById('apiPlayerImg');
+      if (player) player.src = '/api/player?t=' + t;
+
+      // Refresh Rendered Profile images
+      const container = document.getElementById('markdownContainer');
+      if (container) {
+        container.querySelectorAll('img').forEach(img => {
+          const src = img.getAttribute('src');
+          if (src && (src.includes('/api/banner') || src.includes('/api/quote') || src.includes('/api/player'))) {
+            const u = new URL(src, window.location.origin);
+            u.searchParams.set('t', t);
+            img.src = u.pathname + u.search;
+          }
+        });
+      }
+
+      showToast('Randomized all live widgets!');
     }
 
     function copySnippet(id) {
       const text = document.getElementById(id).innerText;
       navigator.clipboard.writeText(text);
-      event.target.innerText = 'Copied!';
-      setTimeout(() => { event.target.innerText = 'Copy'; }, 1500);
+      showToast('Copied embed snippet!');
     }
+
+    function copyCurrentMarkdown() {
+      navigator.clipboard.writeText(rawReadmeContent);
+      showToast('Copied markdown to clipboard!');
+    }
+
+    function downloadCurrentMarkdown() {
+      const fileName = currentVersion === 'old' ? 'old_readme.md' : 'README.md';
+      const blob = new Blob([rawReadmeContent], { type: 'text/markdown;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = fileName;
+      link.click();
+      URL.revokeObjectURL(link.href);
+      showToast(`Downloaded ${fileName}`);
+    }
+
+    // Initialize on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      loadMarkdown('main');
+    });
   </script>
 </body>
 </html>

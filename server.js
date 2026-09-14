@@ -7,6 +7,7 @@ const bannerHandler = require('./api/banner');
 const quoteHandler = require('./api/quote');
 const playerHandler = require('./api/player');
 const playerLinkHandler = require('./api/player-link');
+const readmeHandler = require('./api/readme');
 
 const PORT = process.env.PORT || 3000;
 
@@ -32,6 +33,16 @@ const server = http.createServer((req, res) => {
     playerHandler(req, res);
   } else if (pathname === '/api/player-link') {
     playerLinkHandler(req, res);
+  } else if (pathname === '/api/readme') {
+    readmeHandler(req, res);
+  } else if (pathname === '/README.md') {
+    const md = fs.readFileSync(path.join(__dirname, 'README.md'), 'utf-8');
+    res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+    res.end(md);
+  } else if (pathname === '/old_readme.md') {
+    const md = fs.readFileSync(path.join(__dirname, 'old_readme.md'), 'utf-8');
+    res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+    res.end(md);
   } else {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('Not Found');
