@@ -1,7 +1,8 @@
 const { quotes } = require('./data/assets');
+const pixelFontB64 = require('./data/font');
 
 module.exports = (req, res) => {
-  const { id, text } = req.query || {};
+  const { id, text, size } = req.query || {};
   let quote;
 
   if (text) {
@@ -13,7 +14,9 @@ module.exports = (req, res) => {
     quote = quotes[Math.floor(Math.random() * quotes.length)];
   }
 
-  // XML character escaping
+  const fontSize = size && !isNaN(size) ? parseInt(size, 10) : 15;
+
+  // Escape XML characters
   const escapedQuote = quote
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -24,18 +27,23 @@ module.exports = (req, res) => {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="65" viewBox="0 0 1050 65">
   <defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap');
+      @font-face {
+        font-family: 'Press Start 2P';
+        font-style: normal;
+        font-weight: 400;
+        src: url(data:font/woff2;base64,${pixelFontB64}) format('woff2');
+      }
       .quote-text {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 24px;
-        font-weight: 500;
+        font-family: 'Press Start 2P', monospace;
+        font-size: ${fontSize}px;
         fill: #8B949E;
         text-anchor: middle;
         dominant-baseline: central;
       }
     </style>
   </defs>
-  <text x="525" y="32" class="quote-text">${escapedQuote}</text>
+  <text x="525" y="32.5" class="quote-text">${escapedQuote}</text>
 </svg>`;
 
   res.setHeader('Content-Type', 'image/svg+xml; charset=utf-8');
