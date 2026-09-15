@@ -44,8 +44,35 @@ const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
     res.end(md);
   } else {
-    res.writeHead(404, { 'Content-Type': 'text/plain' });
-    res.end('Not Found');
+    // Static file serving (assets, images, etc.)
+    const cleanPath = pathname.replace(/^\//, '');
+    const candidates = [
+      path.join(__dirname, cleanPath),
+      path.join(__dirname, 'public', cleanPath)
+    ];
+    let found = false;
+    for (const file of candidates) {
+      if (fs.existsSync(file) && fs.statSync(file).isFile()) {
+        const ext = path.extname(file).toLowerCase();
+        const mimeTypes = {
+          '.webp': 'image/webp',
+          '.svg': 'image/svg+xml',
+          '.png': 'image/png',
+          '.jpg': 'image/jpeg',
+          '.html': 'text/html',
+          '.css': 'text/css',
+          '.js': 'application/javascript'
+        };
+        res.setHeader('Content-Type', mimeTypes[ext] || 'application/octet-stream');
+        res.end(fs.readFileSync(file));
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.end('Not Found');
+    }
   }
 });
 
