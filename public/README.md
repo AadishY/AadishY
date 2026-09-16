@@ -23,23 +23,23 @@
   <img align="right" src="./assets/productive.webp" alt="Productive Mood" width="210" hspace="10" />
 
   <p>
-    <b>Aadish here</b> — creating random, mildly useless things that are way too fun to build anyway :)
+    <code><b>Aadish here</b> — creating random, mildly useless things that are way too fun to build anyway :)</code>
   </p>
 
   <p>
-    I like playing games, breaking things in the code editor, and seeing what happens when a random idea gets completely out of hand.
+    <code>I like playing games, breaking things in the code editor, and seeing what happens when a random idea gets completely out of hand.</code>
   </p>
 
   <p>
-    Right now, I’m building <a href="https://github.com/AadishY/BugShot-Roulette" target="_blank"><b>Bugshot Roulette</b></a> 🎮 — Buckshot Roulette Clone for web.
+    <code>Right now, I’m building <a href="https://github.com/AadishY/BugShot-Roulette" target="_blank"><b>Bugshot Roulette</b></a> 🎮 — Buckshot Roulette Clone for web.</code>
   </p>
 
   <p>
-    Most days involve debugging weird glitches that shouldn't exist, accidentally creating brand-new ones, and keeping way too many browser tabs open. When I’m not building, I’m usually gaming and convincing myself it counts as "productivity".
+    <code>Most days involve debugging weird glitches that shouldn't exist, accidentally creating brand-new ones, and keeping way too many browser tabs open. When I’m not building, I’m usually gaming and convincing myself it counts as "productivity".</code>
   </p>
 
   <p>
-    Feel free to poke around my repos, drop a star, or reach out if you want to swap game ideas and chat!
+    <code>Feel free to poke around my repos, drop a star, or reach out if you want to swap game ideas and chat!</code>
   </p>
 
   <p>
