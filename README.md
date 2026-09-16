@@ -31,11 +31,11 @@
   </p>
 
   <p>
-    Right now, I’m building <a href="https://github.com/AadishY/BugShot-Roulette" target="_blank"><b>Bugshot Roulette</b></a> 🎮 — bringing chaotic multiplayer showdowns directly into the browser.
+    Right now, I’m building <a href="https://github.com/AadishY/BugShot-Roulette" target="_blank"><b>Bugshot Roulette</b></a> 🎮 — Buckshot Roulette Clone for web.
   </p>
 
   <p>
-    Most days involve debugging weird glitches that shouldn't exist, accidentally creating brand-new ones, and keeping way too many browser tabs open. When I’m not building, I’m usually gaming and convincing myself it counts as "product research".
+    Most days involve debugging weird glitches that shouldn't exist, accidentally creating brand-new ones, and keeping way too many browser tabs open. When I’m not building, I’m usually gaming and convincing myself it counts as "productivity".
   </p>
 
   <p>
