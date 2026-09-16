@@ -17,29 +17,34 @@
 <br/>
 
 <!-- About Me Section -->
-<h2 align="center">🚀 About Me</h2>
+<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&weight=400&size=20&pause=10000000&color=58A6FF&center=true&vCenter=true&width=380&height=38&lines=About+Me" alt="About Me" />
 
 <div align="left">
   <img align="right" src="./assets/productive.webp" alt="Productive Mood" width="210" hspace="10" />
 
   <p>
-    <b>Aadish, here</b> — turning caffeine into code and wondering why the bug vanished when I added a <code>print()</code> statement.
+    <b>Aadish here</b> — creating random, mildly useless things that are way too fun to build anyway :)
   </p>
 
   <p>
-    I enjoy building backend services, breaking things in Python, and occasionally pretending that my code worked on the first try.
+    I like playing games, breaking things in the code editor, and seeing what happens when a random idea gets completely out of hand.
   </p>
 
   <p>
-    Currently diving into backend architecture, databases, and machine learning while actively negotiating with my terminal.
+    Right now, I’m building <a href="https://github.com/AadishY/BugShot-Roulette" target="_blank"><b>Bugshot Roulette</b></a> 🎮 — Buckshot Roulette Clone for web.
   </p>
 
   <p>
-    My goal is simple: write clean code, keep the servers alive, and close 47 open browser tabs before going to sleep.
+    Most days involve debugging weird glitches that shouldn't exist, accidentally creating brand-new ones, and keeping way too many browser tabs open. When I’m not building, I’m usually gaming and convincing myself it counts as "productivity".
   </p>
 
   <p>
-    <b>Connect with me:</b> &nbsp;
+    Feel free to poke around my repos, drop a star, or reach out if you want to swap game ideas and chat!
+  </p>
+
+  <p>
+    <img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&weight=400&size=11&pause=10000000&color=58A6FF&center=false&vCenter=true&width=175&height=24&lines=Connect+with+me%3A" alt="Connect with me:" align="middle" />
+    &nbsp;
     <a href="https://instagram.com/yo.akatsuki" target="_blank" rel="noopener noreferrer">
       <img src="./assets/icons/instagram.svg" width="22" height="22" alt="Instagram" align="middle" />
     </a>
@@ -82,7 +87,7 @@
 <br/>
  <!-- Page Views -->
 <img src="https://aadishcounter.vercel.app/@githubprofile:3041?theme=random-animation-digit&padding=7&crop=true&count-view=true&size=65" alt="Profile Views" height="65" /><br/>
-<small><i>Page Views</i></small>
+<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&weight=400&size=10&pause=10000000&color=8B949E&center=true&vCenter=true&width=180&height=20&lines=Page+Views" alt="Page Views" />
 
 </div>
 
